@@ -1,1 +1,6 @@
+My IP is 172.31.38.196
 
+The sudo command stands for super user do, and as could be infered from its name it is used to allow for the execution of commands that may be only accessed by the 
+super user, such as installing or deleting packages.
+
+apt-get is used for handling packages (installing, deleting, updating...)
