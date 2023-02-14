@@ -4,3 +4,6 @@ The sudo command stands for super user do, and as could be infered from its name
 super user, such as installing or deleting packages.
 
 apt-get is used for handling packages (installing, deleting, updating...)
+
+Commands to deplot website:
+sudo apt install apache2 mysql-server php-mysql php libapache2-mod-php php-pear curl php-curl php-cli git
