@@ -12,7 +12,7 @@ curl -sS https://getcomposer.org/installer | sudo php -- --install-dir=/usr/loca
 
 5. sudo chmod -R ug+rwx storage bootstrap/cache grants write/read/execute permissions to storage and boostrap/cache for the user and group (ug) owning the directories
 
-Commands to deplot website:
+Commands to deploy website:
 
 sudo apt install apache2 mysql-server php-mysql php libapache2-mod-php php-pear curl php-curl php-cli git php-mcrypt
 a2enmod rewrite
