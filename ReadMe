@@ -14,7 +14,7 @@ curl -sS https://getcomposer.org/installer | sudo php -- --install-dir=/usr/loca
 
 Commands to deplot website:
 
-sudo apt install apache2 mysql-server php-mysql php libapache2-mod-php php-pear curl php-curl php-cli git
+sudo apt install apache2 mysql-server php-mysql php libapache2-mod-php php-pear curl php-curl php-cli git php-mcrypt
 a2enmod rewrite
 sudo service apache2 restart
 
@@ -44,5 +44,7 @@ cd /var/www/html/stunning-laravel
 sudo chgrp -R www-data storage bootstrap/cache
 sudo chmod -R ug+rwx storage bootstrap/cache
 
-
+P.S. Note that I had some unexcpected problems that took me much time to solve, such as installing php-mcrypt (package was not found), and executing sudo php -- --install-dir=/usr/local/bin --filename=composer. 
+Also, I thought that the composer was appropriately installed and moved on then the key generation did not work so I went back to fixing it. This going back and forth and the long
+time taken to solve these problems made me omit mush of the recordings and merge them all into one showcasing the main work steps.
 
