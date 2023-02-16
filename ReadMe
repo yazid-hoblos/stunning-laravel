@@ -1,9 +1,48 @@
 My IP is 172.31.38.196
 
-The sudo command stands for super user do, and as could be infered from its name it is used to allow for the execution of commands that may be only accessed by the 
+1. The sudo command stands for super user do, and as could be infered from its name it is used to allow for the execution of commands that may be only accessed by the 
 super user, such as installing or deleting packages.
 
-apt-get is used for handling packages (installing, deleting, updating...)
+2. apt-get is used for handling packages (installing, deleting, updating...) thorugh the APT (advanced package tool) library
+
+3. curl -sS https://getcomposer.org/installer | sudo php — — installdir=/usr/local/bin — filename=composer should be fixed to 
+curl -sS https://getcomposer.org/installer | sudo php -- --install-dir=/usr/local/bin --filename=composer
+
+4. sudo chgrp -R www-data storage bootstrap/cache changes the group ownership of storage and bootstrap/cache to the www-data group recursively (-R)
+
+5. sudo chmod -R ug+rwx storage bootstrap/cache grants write/read/execute permissions to storage and boostrap/cache for the user and group (ug) owning the directories
 
 Commands to deplot website:
+
 sudo apt install apache2 mysql-server php-mysql php libapache2-mod-php php-pear curl php-curl php-cli git
+a2enmod rewrite
+sudo service apache2 restart
+
+cd /var/www/html
+sudo git clone <repository link>
+
+curl -sS https://getcomposer.org/installer | sudo php -- --install-dir=/usr/local/bin --filename=composer
+composer install
+
+cd /var/www/html/stunnin-laravel
+cp .env.example .env
+sudo nano .env (once in edit APP_NAME to "ScriptingProject")
+php artisan key:generate
+cd /etc/apache2
+sudo nano apache2.conf (once in, add:
+     <Directory /var/www/html/stunning-laravel/public>
+     Options Indexes FollowSymLinks
+     AllowOverride all
+     Require all granted
+     </Directory>)
+sudo nano /etc/apache2/sites-enabled/000-default.conf (once in, edit the lines under <VirtualHost *:80> to become:
+     ServerAdmin webmaster@localhost
+     DocumentRoot /var/www/html/stunning-laravel/public/)
+sudo service apache2 restart
+
+cd /var/www/html/stunning-laravel
+sudo chgrp -R www-data storage bootstrap/cache
+sudo chmod -R ug+rwx storage bootstrap/cache
+
+
+
